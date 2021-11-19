@@ -1,0 +1,14 @@
+# Rename this file to application-xxx.yml and modify property values as per your Tencent CIAM User Store.
+
+tencent:
+  ciam:
+    user-store-url: https://TO_BE_REPLACED.portal.tencentciam.com
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          app1_oidc:
+            client-id: TO_BE_REPLACED
+            client-secret: TO_BE_REPLACED

@@ -1,0 +1,16 @@
+﻿
+# maven
+/target
+
+# spring boot
+**/resources/application-*.properties
+**/resources/application-*.yml
+
+# intellij
+.idea
+*.iws
+*.iml
+*.ipr
+
+# macOS
+.DS_Store
