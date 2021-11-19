@@ -1,0 +1,9 @@
+{
+    "properties": [
+        {
+            "name": "tencent.ciam.user-store-url",
+            "type": "java.lang.String",
+            "description": "The URL of the Tencent CIAM User Store."
+        }
+    ]
+}
