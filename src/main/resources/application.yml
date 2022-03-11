@@ -7,9 +7,6 @@ tencent:
 
 spring:
 
-  profiles:
-    active: sample
-
   thymeleaf:
     cache: false
 
@@ -18,14 +15,22 @@ spring:
       client:
 
         provider:
+
+          # OIDC Client using Authorization Code Flow with PKCE
           tencent-ciam:
+            authorization-uri: ${tencent.ciam.user-store-url}/oauth2/authorize
+            token-uri: ${tencent.ciam.user-store-url}/oauth2/token
+            jwk-set-uri: ${tencent.ciam.user-store-url}/oauth2/jwks
+
+          # Recommended: OIDC Client using Authorization Code Flow with PKCE
+          tencent-ciam-openid-configuration:
             authorization-uri: ${tencent.ciam.user-store-url}/oauth2/authorize
             token-uri: ${tencent.ciam.user-store-url}/oauth2/token
             jwk-set-uri: ${tencent.ciam.user-store-url}/oauth2/jwks
 
         registration:
 
-          # Recommended: Standard OIDC client using Authorization Code Flow with PKCE
+          # Recommended: OIDC Client using Authorization Code Flow with PKCE
           oidc_pkce_client:
             provider: tencent-ciam
             authorization-grant-type: authorization_code
@@ -33,7 +38,9 @@ spring:
             scope: openid
             client-authentication-method: post
             client-name: default_client
-          oauth_nonpkce_client:
+
+          # OIDC Client using plain Authorization Code Flow
+          oidc_nonpkce_client:
             provider: tencent-ciam-auto
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
