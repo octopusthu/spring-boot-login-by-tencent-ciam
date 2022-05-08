@@ -16,14 +16,14 @@ spring:
 
         provider:
 
-          # Recommended: OIDC Client using Authorization Code Flow with PKCE
+          # OIDC Client using Authorization Code Flow with PKCE
           tencent-ciam:
             authorization-uri: ${tencent.ciam.user-store-url}/oauth2/authorize
             token-uri: ${tencent.ciam.user-store-url}/oauth2/token
             jwk-set-uri: ${tencent.ciam.user-store-url}/oauth2/jwks
 
           # Recommended: OIDC Client using Authorization Code Flow with PKCE
-          tencent-ciam-auto-configuration:
+          tencent-ciam-openid-configuration:
             authorization-uri: ${tencent.ciam.user-store-url}/oauth2/authorize
             token-uri: ${tencent.ciam.user-store-url}/oauth2/token
             jwk-set-uri: ${tencent.ciam.user-store-url}/oauth2/jwks
